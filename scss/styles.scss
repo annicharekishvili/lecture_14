@@ -1,0 +1,79 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+@import 'placeholders';
+
+.container1 {
+  background-color: $container-color1;
+  @extend %container;
+  @include flexContainer(space-evenly, center, row);
+  margin-bottom: 20px;
+
+  .box {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+
+    &:first-child {
+      background-color: $box-color1;
+    }
+
+    &:nth-child(2) {
+      background-color: $box-color2;
+    }
+
+    &:nth-child(3) {
+      background-color: $box-color4;
+    }
+
+    &:last-child {
+      background-color: $box-color3;
+    }
+
+    @media only screen and (max-width: 900px) {
+      height: 300px;
+      width: 300px;
+    }
+  }
+  @media only screen and (max-width: 650px) {
+    @include flexContainer(space-evenly, center, column);
+  }
+}
+
+.container2 {
+  @extend %container;
+  background-color: $container-color2;
+  @include flexContainer(space-around, center, row);
+
+  .box {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+
+    &:first-child {
+      background-color: $box-color2;
+    }
+
+    &:nth-child(2) {
+      background-color: $box-color3;
+    }
+
+    &:nth-child(3) {
+      background-color: $box-color1;
+    }
+
+    &:last-child {
+      background-color: $box-color4;
+    }
+
+    @media only screen and (max-width: 900px) {
+      height: 290px;
+      width: 290px;
+    }
+  }
+  @media only screen and (max-width: 650px) {
+    @include flexContainer(center, center, column);
+  }
+}
